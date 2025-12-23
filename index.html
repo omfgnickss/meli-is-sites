@@ -154,752 +154,7 @@
       50% { transform: scale(1.05); box-shadow: 0 16px 56px rgba(0,0,0,0.5); }
     }
 
-    /* ===== ONBOARDING TOUR ===== */
-    .onboarding-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.85);
-      z-index: 9998;
-      display: none;
-      animation: fadeIn 0.3s ease;
-    }
-
-    .onboarding-overlay.active {
-      display: block;
-    }
-
-    .onboarding-spotlight {
-      position: fixed;
-      border: 3px solid var(--ml-yellow);
-      border-radius: 12px;
-      box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.85), 0 0 30px var(--ml-yellow);
-      z-index: 9999;
-      pointer-events: none;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .onboarding-tooltip {
-      position: fixed;
-      background: var(--ml-white);
-      border-radius: 16px;
-      padding: 2rem;
-      max-width: 400px;
-      width: 90%;
-      box-shadow: var(--shadow-xl);
-      z-index: 10000;
-      animation: slideInUp 0.4s ease;
-    }
-
-    @keyframes slideInUp {
-      from {
-        transform: translateY(30px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
-    .onboarding-header {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .onboarding-icon {
-      width: 48px;
-      height: 48px;
-      background: linear-gradient(135deg, var(--ml-blue), var(--ml-blue-dark));
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      color: white;
-    }
-
-    .onboarding-step {
-      font-size: 0.85rem;
-      color: var(--ml-text-tertiary);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .onboarding-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--ml-text-primary);
-      margin-bottom: 0.75rem;
-    }
-
-    .onboarding-description {
-      font-size: 1rem;
-      color: var(--ml-text-secondary);
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-    }
-
-    .onboarding-actions {
-      display: flex;
-      gap: 0.75rem;
-      justify-content: flex-end;
-    }
-
-    .onboarding-btn {
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      cursor: pointer;
-      border: none;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 0.3px;
-    }
-
-    .onboarding-btn-skip {
-      background: var(--ml-background-dark);
-      color: var(--ml-text-secondary);
-    }
-
-    .onboarding-btn-skip:hover {
-      background: var(--ml-border-medium);
-    }
-
-    .onboarding-btn-next {
-      background: var(--ml-blue);
-      color: var(--ml-white);
-    }
-
-    .onboarding-btn-next:hover {
-      background: var(--ml-blue-dark);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-    }
-
-    /* ===== CHATBOT ===== */
-    .chatbot-widget {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      z-index: 9997;
-    }
-
-    .chatbot-button {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--ml-blue), var(--ml-blue-dark));
-      color: white;
-      border: none;
-      cursor: pointer;
-      box-shadow: var(--shadow-lg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      animation: bobbing 3s ease-in-out infinite;
-    }
-
-    @keyframes bobbing {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    .chatbot-button:hover {
-      transform: scale(1.1);
-      box-shadow: var(--shadow-xl);
-    }
-
-    .chatbot-button.open {
-      background: var(--ml-red);
-    }
-
-    .chatbot-notification {
-      position: absolute;
-      top: -5px;
-      right: -5px;
-      width: 24px;
-      height: 24px;
-      background: var(--ml-red);
-      border-radius: 50%;
-      color: white;
-      font-size: 0.75rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      animation: pulse 2s infinite;
-    }
-
-    .chatbot-window {
-      position: absolute;
-      bottom: 80px;
-      right: 0;
-      width: 380px;
-      height: 550px;
-      background: var(--ml-white);
-      border-radius: 16px;
-      box-shadow: var(--shadow-xl);
-      display: none;
-      flex-direction: column;
-      overflow: hidden;
-      animation: slideInRight 0.3s ease;
-    }
-
-    @keyframes slideInRight {
-      from {
-        transform: translateX(50px);
-        opacity: 0;
-      }
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-
-    .chatbot-window.open {
-      display: flex;
-    }
-
-    .chatbot-header {
-      background: linear-gradient(135deg, var(--ml-blue), var(--ml-blue-dark));
-      color: white;
-      padding: 1.25rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .chatbot-header-info {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .chatbot-avatar {
-      width: 40px;
-      height: 40px;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-    }
-
-    .chatbot-title {
-      font-size: 1.1rem;
-      font-weight: 700;
-    }
-
-    .chatbot-status {
-      font-size: 0.8rem;
-      opacity: 0.9;
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-
-    .chatbot-status-dot {
-      width: 8px;
-      height: 8px;
-      background: var(--ml-green);
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-
-    .chatbot-close {
-      background: rgba(255, 255, 255, 0.2);
-      border: none;
-      color: white;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      transition: all 0.3s ease;
-    }
-
-    .chatbot-close:hover {
-      background: rgba(255, 255, 255, 0.3);
-    }
-
-    .chatbot-messages {
-      flex: 1;
-      overflow-y: auto;
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      background: var(--ml-background);
-    }
-
-    .chatbot-message {
-      display: flex;
-      gap: 0.75rem;
-      animation: fadeInUp 0.3s ease;
-    }
-
-    .chatbot-message.user {
-      flex-direction: row-reverse;
-    }
-
-    .chatbot-message-avatar {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: var(--ml-blue);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.9rem;
-      flex-shrink: 0;
-    }
-
-    .chatbot-message.user .chatbot-message-avatar {
-      background: var(--ml-yellow);
-      color: var(--ml-text-primary);
-    }
-
-    .chatbot-message-bubble {
-      background: var(--ml-white);
-      padding: 0.85rem 1.1rem;
-      border-radius: 12px;
-      max-width: 75%;
-      font-size: 0.95rem;
-      line-height: 1.5;
-      box-shadow: var(--shadow-xs);
-    }
-
-    .chatbot-message.user .chatbot-message-bubble {
-      background: var(--ml-blue);
-      color: white;
-    }
-
-    .chatbot-quick-replies {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.5rem;
-    }
-
-    .chatbot-quick-reply {
-      background: var(--ml-blue-light);
-      color: var(--ml-blue-dark);
-      border: 1px solid var(--ml-blue);
-      padding: 0.5rem 0.9rem;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .chatbot-quick-reply:hover {
-      background: var(--ml-blue);
-      color: white;
-      transform: translateY(-2px);
-    }
-
-    .chatbot-input-area {
-      padding: 1rem;
-      background: var(--ml-white);
-      border-top: 1px solid var(--ml-border-light);
-      display: flex;
-      gap: 0.75rem;
-    }
-
-    .chatbot-input {
-      flex: 1;
-      padding: 0.85rem 1.1rem;
-      border: 2px solid var(--ml-border-light);
-      border-radius: 24px;
-      font-size: 0.95rem;
-      font-family: inherit;
-      transition: all 0.3s ease;
-    }
-
-    .chatbot-input:focus {
-      outline: none;
-      border-color: var(--ml-blue);
-    }
-
-    .chatbot-send {
-      width: 44px;
-      height: 44px;
-      background: var(--ml-blue);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      transition: all 0.3s ease;
-    }
-
-    .chatbot-send:hover {
-      background: var(--ml-blue-dark);
-      transform: scale(1.1);
-    }
-
-    /* ===== GERADOR DE SENHAS ===== */
-    .password-generator-btn {
-      position: fixed;
-      bottom: 2rem;
-      right: 100px;
-      width: 60px;
-      height: 60px;
-      background: var(--ml-yellow);
-      color: var(--ml-text-primary);
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      box-shadow: var(--shadow-lg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.6rem;
-      transition: all 0.3s ease;
-      z-index: 9996;
-    }
-
-    .password-generator-btn:hover {
-      background: var(--ml-yellow-dark);
-      transform: scale(1.1);
-    }
-
-    .password-generator-modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(8px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      animation: fadeIn 0.3s ease;
-    }
-
-    .password-generator-modal.active {
-      display: flex;
-    }
-
-    .password-generator-content {
-      background: var(--ml-white);
-      border-radius: 16px;
-      padding: 2.5rem;
-      max-width: 500px;
-      width: 90%;
-      box-shadow: var(--shadow-xl);
-      animation: scaleIn 0.3s ease;
-    }
-
-    @keyframes scaleIn {
-      from {
-        transform: scale(0.9);
-        opacity: 0;
-      }
-      to {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
-
-    .password-generator-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 2rem;
-    }
-
-    .password-generator-title {
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: var(--ml-text-primary);
-    }
-
-    .password-generator-close {
-      background: var(--ml-background-dark);
-      border: none;
-      color: var(--ml-text-secondary);
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      transition: all 0.3s ease;
-    }
-
-    .password-generator-close:hover {
-      background: var(--ml-border-medium);
-      transform: rotate(90deg);
-    }
-
-    .password-display {
-      background: var(--ml-blue-ultralight);
-      border: 2px solid var(--ml-blue-light);
-      border-radius: 12px;
-      padding: 1.25rem;
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .password-text {
-      font-family: 'Courier New', monospace;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--ml-text-primary);
-      letter-spacing: 2px;
-      flex: 1;
-      word-break: break-all;
-    }
-
-    .password-copy-btn {
-      background: var(--ml-blue);
-      color: white;
-      border: none;
-      width: 44px;
-      height: 44px;
-      border-radius: 8px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      transition: all 0.3s ease;
-      flex-shrink: 0;
-    }
-
-    .password-copy-btn:hover {
-      background: var(--ml-blue-dark);
-      transform: scale(1.1);
-    }
-
-    .password-options {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .password-option {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .password-option-label {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--ml-text-primary);
-    }
-
-    .password-option input[type="range"] {
-      width: 200px;
-    }
-
-    .password-option input[type="checkbox"] {
-      width: 20px;
-      height: 20px;
-      cursor: pointer;
-    }
-
-    .password-length-value {
-      background: var(--ml-blue);
-      color: white;
-      padding: 0.35rem 0.75rem;
-      border-radius: 6px;
-      font-weight: 700;
-      min-width: 40px;
-      text-align: center;
-    }
-
-    .password-strength {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 0.85rem;
-      background: var(--ml-background);
-      border-radius: 8px;
-      margin-bottom: 1.5rem;
-    }
-
-    .password-strength-label {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--ml-text-tertiary);
-    }
-
-    .password-strength-bar {
-      flex: 1;
-      height: 8px;
-      background: var(--ml-border-light);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-
-    .password-strength-fill {
-      height: 100%;
-      transition: all 0.3s ease;
-      border-radius: 4px;
-    }
-
-    .password-strength-fill.weak {
-      width: 33%;
-      background: var(--ml-red);
-    }
-
-    .password-strength-fill.medium {
-      width: 66%;
-      background: var(--ml-orange);
-    }
-
-    .password-strength-fill.strong {
-      width: 100%;
-      background: var(--ml-green);
-    }
-
-    .password-generate-btn {
-      width: 100%;
-      padding: 1rem;
-      background: var(--ml-yellow);
-      color: var(--ml-text-primary);
-      border: none;
-      border-radius: 8px;
-      font-size: 1.05rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .password-generate-btn:hover {
-      background: var(--ml-yellow-dark);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-    }
-
-    /* ===== STATUS DOS SISTEMAS ===== */
-    .system-status-indicator {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-
-    .system-status-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-
-    .system-status-dot.online {
-      background: var(--ml-green);
-    }
-
-    .system-status-dot.offline {
-      background: var(--ml-red);
-    }
-
-    .system-status-dot.checking {
-      background: var(--ml-orange);
-    }
-
-    .link-card.offline {
-      opacity: 0.6;
-      filter: grayscale(50%);
-    }
-
-    .link-card.offline::after {
-      content: '⚠️ Offline';
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: var(--ml-red);
-      color: white;
-      padding: 0.35rem 0.75rem;
-      border-radius: 6px;
-      font-size: 0.75rem;
-      font-weight: 700;
-    }
-
-    /* ===== MELHORIAS VISUAIS - GLASSMORPHISM ===== */
-    .glass-effect {
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-    }
-
-    /* ===== MICRO-INTERAÇÕES ===== */
-    @keyframes confetti {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-1000px) rotate(720deg);
-        opacity: 0;
-      }
-    }
-
-    .confetti-piece {
-      position: fixed;
-      width: 10px;
-      height: 10px;
-      z-index: 10001;
-      animation: confetti 3s ease-out forwards;
-      pointer-events: none;
-    }
-
-    /* ===== LOADING SKELETON ===== */
-    .skeleton {
-      background: linear-gradient(90deg, var(--ml-background) 25%, var(--ml-background-dark) 50%, var(--ml-background) 75%);
-      background-size: 200% 100%;
-      animation: loading 1.5s ease-in-out infinite;
-      border-radius: 8px;
-    }
-
-    @keyframes loading {
-      0% {
-        background-position: 200% 0;
-      }
-      100% {
-        background-position: -200% 0;
-      }
-    }
-
-    /* ===== REMAINING ORIGINAL STYLES ===== */
-    /* (Todos os estilos originais do código anterior permanecem aqui) */
-    
-    /* Header, Breadcrumb, Hero, Stats, Search, Links, Text Cards, etc. */
-    /* ... (Mantém TODO o CSS original) ... */
-
+    /* ===== HEADER CORPORATIVO ===== */
     .corporate-header {
       background: var(--ml-white);
       border-bottom: 3px solid var(--ml-yellow);
@@ -988,6 +243,7 @@
       align-items: center;
     }
 
+    /* Weather Widget */
     .weather-widget {
       display: flex;
       align-items: center;
@@ -1035,6 +291,7 @@
       font-weight: 600;
     }
 
+    /* User Info */
     .user-info {
       display: flex;
       align-items: center;
@@ -1067,6 +324,12 @@
       border: 2px solid var(--ml-white);
       box-shadow: var(--shadow-xs);
       overflow: hidden;
+    }
+
+    .user-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .user-details {
@@ -1107,9 +370,7 @@
       box-shadow: var(--shadow-sm);
     }
 
-    /* ... (Continue com TODOS os estilos do código anterior) ... */
-    /* Por brevidade, mantenha todos os estilos originais aqui */
-
+    /* ===== BREADCRUMB ===== */
     .breadcrumb-section {
       background: var(--ml-background-dark);
       border-bottom: 1px solid var(--ml-border-light);
@@ -1153,6 +414,7 @@
       user-select: none;
     }
 
+    /* ===== HERO SECTION ===== */
     .hero-section {
       background: linear-gradient(135deg, var(--ml-blue-darker) 0%, var(--ml-blue-dark) 100%);
       color: var(--ml-white);
@@ -1262,6 +524,7 @@
       font-weight: 400;
     }
 
+    /* ===== MAIN CONTAINER ===== */
     .main-container {
       max-width: 1400px;
       margin: 0 auto;
@@ -1274,11 +537,926 @@
       to { opacity: 1; }
     }
 
-    /* Continue com todos os demais estilos do código original... */
-    /* Stats, Search, Links, Text Cards, Footer, etc. */
+    /* ===== STATS DASHBOARD ===== */
+    .stats-dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
 
-    /* Por brevidade, não vou repetir os 2000+ linhas de CSS, mas MANTENHA TODOS */
+    .stat-card {
+      background: var(--ml-white);
+      border: 1px solid var(--ml-border-light);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      animation: scaleIn 0.6s ease-out backwards;
+    }
 
+    .stat-card:nth-child(1) { animation-delay: 0.7s; }
+    .stat-card:nth-child(2) { animation-delay: 0.8s; }
+    .stat-card:nth-child(3) { animation-delay: 0.9s; }
+
+    @keyframes scaleIn {
+      from {
+        transform: scale(0.92);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--ml-blue);
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.4s ease;
+    }
+
+    .stat-card:hover::before {
+      transform: scaleY(1);
+    }
+
+    .stat-card:hover {
+      border-color: var(--ml-blue);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-6px);
+    }
+
+    .stat-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.25rem;
+    }
+
+    .stat-icon-box {
+      width: 56px;
+      height: 56px;
+      background: var(--ml-blue-ultralight);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover .stat-icon-box {
+      background: var(--ml-blue-light);
+      transform: rotate(8deg) scale(1.1);
+    }
+
+    .stat-trend {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.8rem;
+      color: var(--ml-green);
+      font-weight: 700;
+      background: var(--ml-success-bg);
+      padding: 0.35rem 0.65rem;
+      border-radius: 16px;
+    }
+
+    .stat-value {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--ml-text-primary);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      letter-spacing: -1px;
+    }
+
+    .stat-label {
+      font-size: 0.95rem;
+      color: var(--ml-text-tertiary);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    /* ===== SEARCH SECTION ===== */
+    .search-section {
+      background: var(--ml-white);
+      border: 1px solid var(--ml-border-light);
+      border-radius: 14px;
+      padding: 2.25rem;
+      margin-bottom: 3rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .search-header {
+      margin-bottom: 1.75rem;
+    }
+
+    .search-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--ml-text-primary);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.3px;
+    }
+
+    .search-subtitle {
+      font-size: 0.95rem;
+      color: var(--ml-text-tertiary);
+      font-weight: 400;
+    }
+
+    .search-wrapper {
+      position: relative;
+      animation: expandSearch 0.6s ease-out;
+    }
+
+    @keyframes expandSearch {
+      from {
+        transform: scaleY(0.9);
+        opacity: 0;
+      }
+      to {
+        transform: scaleY(1);
+        opacity: 1;
+      }
+    }
+
+    .search-input-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 1.5rem;
+      font-size: 1.2rem;
+      color: var(--ml-text-tertiary);
+      pointer-events: none;
+      transition: all 0.3s ease;
+      
+    }
+
+    .search-bar {
+      width: 100%;
+      padding: 1.15rem 3.75rem 1.15rem 3.5rem;
+      border: 2px solid var(--ml-border-medium);
+      border-radius: 10px;
+      font-size: 1rem;
+      background: var(--ml-white);
+      color: var(--ml-text-primary);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-family: inherit;
+      font-weight: 500;
+    }
+
+    .search-bar:focus {
+      outline: none;
+      border-color: var(--ml-blue);
+      box-shadow: 0 0 0 4px rgba(52, 131, 250, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .search-bar:focus ~ .search-icon {
+      color: var(--ml-blue);
+      transform: scale(1.15);
+    }
+
+    .search-bar::placeholder {
+      color: var(--ml-text-light);
+      font-weight: 400;
+    }
+
+    .clear-search-btn {
+      position: absolute;
+      right: 1.25rem;
+      background: var(--ml-background-dark);
+      border: none;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      color: var(--ml-text-secondary);
+      font-size: 1.3rem;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+
+    .clear-search-btn.active {
+      display: flex;
+    }
+
+    .clear-search-btn:hover {
+      background: var(--ml-border-medium);
+      color: var(--ml-text-primary);
+      transform: rotate(90deg) scale(1.1);
+    }
+
+    .search-status {
+      margin-top: 1rem;
+      padding: 1rem 1.25rem;
+      background: var(--ml-blue-ultralight);
+      border-left: 4px solid var(--ml-blue);
+      border-radius: 6px;
+      font-size: 0.95rem;
+      color: var(--ml-text-secondary);
+      font-weight: 600;
+      animation: slideInLeft 0.4s ease-out;
+    }
+
+    @keyframes slideInLeft {
+      from {
+        transform: translateX(-20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    /* ===== CONTENT SECTIONS ===== */
+    .content-section {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 2px solid var(--ml-border-light);
+      animation: slideInLeft 0.6s ease-out backwards;
+    }
+
+    .section-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--ml-blue);
+      color: var(--ml-white);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-title-group {
+      flex: 1;
+    }
+
+    .section-title {
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--ml-text-primary);
+      margin-bottom: 0.35rem;
+      letter-spacing: -0.7px;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--ml-text-tertiary);
+      font-weight: 500;
+    }
+
+    /* ===== LINKS GRID ===== */
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .link-card {
+      background: var(--ml-white);
+      border: 1px solid var(--ml-border-light);
+      border-radius: 10px;
+      padding: 1.75rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      animation: fadeInUp 0.5s ease-out backwards;
+    }
+
+    .link-card:nth-child(1) { animation-delay: 0.1s; }
+    .link-card:nth-child(2) { animation-delay: 0.15s; }
+    .link-card:nth-child(3) { animation-delay: 0.2s; }
+    .link-card:nth-child(4) { animation-delay: 0.25s; }
+    .link-card:nth-child(5) { animation-delay: 0.3s; }
+    .link-card:nth-child(6) { animation-delay: 0.35s; }
+    .link-card:nth-child(7) { animation-delay: 0.4s; }
+
+    .link-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--ml-blue), var(--ml-green));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .link-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .link-card:hover {
+      border-color: var(--ml-blue);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-6px);
+    }
+
+    .link-content {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      flex: 1;
+    }
+
+    .link-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--ml-blue-ultralight);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+
+    .link-card:hover .link-icon {
+      background: var(--ml-blue-light);
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .link-details {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .link-title {
+      font-weight: 700;
+      color: var(--ml-text-primary);
+      margin-bottom: 0.35rem;
+      font-size: 1.05rem;
+      display: block;
+    }
+
+    .link-url {
+      color: var(--ml-text-tertiary);
+      font-size: 0.8rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      display: block;
+      font-weight: 500;
+    }
+
+    .link-actions {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .btn {
+      padding: 0.7rem 1.5rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .btn-primary {
+      background: var(--ml-blue);
+      color: var(--ml-white);
+      flex: 1;
+      box-shadow: var(--shadow-xs);
+    }
+
+    .btn-primary:hover {
+      background: var(--ml-blue-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-secondary {
+      background: var(--ml-background-dark);
+      color: var(--ml-text-secondary);
+      width: 44px;
+      height: 44px;
+      padding: 0;
+    }
+
+    .btn-secondary:hover {
+      background: var(--ml-border-medium);
+      color: var(--ml-text-primary);
+      transform: scale(1.1);
+    }
+
+    .btn:active {
+      transform: translateY(0) scale(0.97);
+    }
+
+    .btn-success {
+      background: var(--ml-green);
+      animation: successPulse 0.6s ease;
+    }
+
+    @keyframes successPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
+    /* ===== QR CODE BUTTON ===== */
+    .btn-qrcode {
+      background: var(--ml-yellow);
+      color: var(--ml-text-primary);
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      position: relative;
+    }
+
+    .btn-qrcode:hover {
+      background: var(--ml-yellow-dark);
+      transform: scale(1.1);
+    }
+
+    /* QR Code Modal */
+    .qrcode-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      animation: fadeInModal 0.3s ease-out;
+    }
+
+    .qrcode-modal.active {
+      display: flex;
+    }
+
+    @keyframes fadeInModal {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .qrcode-modal-content {
+      background: var(--ml-white);
+      border-radius: 16px;
+      padding: 2rem;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: var(--shadow-xl);
+      text-align: center;
+      animation: scaleInModal 0.3s ease-out;
+      position: relative;
+    }
+
+    @keyframes scaleInModal {
+      from {
+        transform: scale(0.9);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .qrcode-modal-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .qrcode-modal-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--ml-text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .qrcode-modal-subtitle {
+      font-size: 0.9rem;
+      color: var(--ml-text-tertiary);
+      word-break: break-all;
+    }
+
+    .qrcode-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+      background: var(--ml-background);
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+    }
+
+    .qrcode-close-btn {
+      background: var(--ml-blue);
+      color: var(--ml-white);
+      border: none;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .qrcode-close-btn:hover {
+      background: var(--ml-blue-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* ===== TEXT CARDS ===== */
+    .text-card {
+      background: var(--ml-white);
+      border: 1px solid var(--ml-border-light);
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 1.75rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      animation: fadeInUp 0.6s ease-out backwards;
+    }
+
+    .text-card:nth-child(1) { animation-delay: 0.1s; }
+    .text-card:nth-child(2) { animation-delay: 0.2s; }
+    .text-card:nth-child(3) { animation-delay: 0.3s; }
+
+    .text-card:hover {
+      border-color: var(--ml-green);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+
+    .text-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+      gap: 1.5rem;
+    }
+
+    .text-card-title {
+      font-weight: 700;
+      color: var(--ml-text-primary);
+      font-size: 1.1rem;
+      line-height: 1.5;
+      letter-spacing: -0.3px;
+    }
+
+    .text-badge {
+      background: var(--ml-success-bg);
+      color: var(--ml-green-dark);
+      padding: 0.4rem 0.9rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+      border: 1px solid rgba(0,166,80,0.2);
+    }
+
+    .text-content {
+      padding: 1.5rem;
+      background: var(--ml-blue-ultralight);
+      border: 1px solid var(--ml-blue-light);
+      border-radius: 8px;
+      color: var(--ml-text-primary);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      white-space: pre-wrap;
+      font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .text-content:hover {
+      background: var(--ml-white);
+      border-color: var(--ml-green);
+      box-shadow: var(--shadow-sm);
+      transform: scale(1.01);
+    }
+
+    .text-content::after {
+      content: '📋 Clique para copiar';
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255, 255, 255, 0.97);
+      padding: 0.5rem 0.9rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--ml-text-secondary);
+      font-weight: 700;
+      opacity: 0;
+      transform: translateY(-8px);
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--ml-border-light);
+    }
+
+    .text-content:hover::after {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== TOOLTIP ===== */
+    .tooltip {
+      position: fixed;
+      background: var(--ml-green);
+      color: var(--ml-white);
+      border-radius: 8px;
+      padding: 0.85rem 1.5rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      z-index: 10000;
+      opacity: 0;
+      pointer-events: none;
+      box-shadow: var(--shadow-xl);
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      animation: tooltipShow 2s ease-in-out forwards;
+    }
+
+    .tooltip::before {
+      content: '✓';
+      width: 22px;
+      height: 22px;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 0.9rem;
+    }
+
+    @keyframes tooltipShow {
+      0% { 
+        opacity: 0; 
+        transform: translate(-50%, -90%) scale(0.85);
+      }
+      10%, 88% { 
+        opacity: 1; 
+        transform: translate(-50%, -120%) scale(1);
+      }
+      100% { 
+        opacity: 0; 
+        transform: translate(-50%, -100%) scale(0.9);
+      }
+    }
+
+    /* ===== SCROLL TO TOP ===== */
+    .scroll-top-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 56px;
+      height: 56px;
+      background: var(--ml-blue);
+      color: var(--ml-white);
+      border: none;
+      border-radius: 14px;
+      font-size: 1.6rem;
+      cursor: pointer;
+      box-shadow: var(--shadow-lg);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 0;
+      visibility: hidden;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid transparent;
+    }
+
+    .scroll-top-btn.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .scroll-top-btn:hover {
+      background: var(--ml-blue-dark);
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--ml-yellow);
+    }
+
+    .scroll-top-btn:active {
+      transform: translateY(-3px) scale(0.95);
+    }
+
+    /* ===== FOOTER SIMPLIFICADO ===== */
+    .corporate-footer {
+      background: var(--ml-text-primary);
+      color: rgba(255, 255, 255, 0.85);
+      padding: 2rem 2rem;
+      margin-top: 4rem;
+      animation: fadeIn 1s ease-out 1.1s backwards;
+    }
+
+    .footer-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-copyright {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 500;
+    }
+
+    .footer-badges {
+      display: flex;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-badge {
+      background: rgba(255, 255, 255, 0.12);
+      padding: 0.5rem 0.9rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .footer-badge:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    /* ===== UTILITY CLASSES ===== */
+    .hidden { 
+      display: none !important; 
+    }
+
+    .sr-only {
+      position: absolute; 
+      width: 1px; 
+      height: 1px; 
+      padding: 0; 
+      margin: -1px;
+      overflow: hidden; 
+      clip: rect(0,0,0,0); 
+      white-space: nowrap; 
+      border: 0;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .header-container {
+        padding: 1rem 1.5rem;
+      }
+
+      .main-container {
+        padding: 2.5rem 1.5rem;
+      }
+
+      .links-grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .weather-widget,
+      .header-badge {
+        display: none;
+      }
+
+      .user-details {
+        display: none;
+      }
+
+      .hero-section {
+        padding: 3rem 1.5rem 2rem;
+      }
+
+      .hero-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .stats-dashboard {
+        grid-template-columns: 1fr;
+      }
+
+      .links-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .scroll-top-btn {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .brand-title {
+        font-size: 1.15rem;
+      }
+
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .search-section {
+        padding: 1.75rem;
+      }
+
+      .link-card,
+      .text-card {
+        padding: 1.5rem;
+      }
+    }
+
+    /* ===== CUSTOM SCROLLBAR ===== */
+    ::-webkit-scrollbar { 
+      width: 11px; 
+      background: var(--ml-background); 
+    }
+    
+    ::-webkit-scrollbar-thumb { 
+      background: linear-gradient(180deg, var(--ml-blue), var(--ml-blue-dark));
+      border-radius: 6px; 
+      border: 2px solid var(--ml-background);
+    }
+    
+    ::-webkit-scrollbar-thumb:hover { 
+      background: linear-gradient(180deg, var(--ml-blue-dark), var(--ml-blue-darker));
+    }
+
+    /* ===== NOSCRIPT ===== */
+    noscript {
+      display: block;
+      padding: 2rem;
+      text-align: center;
+      background: #FFF3CD;
+      color: #856404;
+      border: 2px solid #FFE69C;
+      border-radius: 10px;
+      margin: 2rem;
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
   </style>
 </head>
 <body>
@@ -1297,133 +1475,7 @@
     </div>
   </div>
 
-  <!-- Onboarding Tour -->
-  <div class="onboarding-overlay" id="onboardingOverlay"></div>
-  <div class="onboarding-spotlight" id="onboardingSpotlight"></div>
-  <div class="onboarding-tooltip" id="onboardingTooltip" style="display: none;">
-    <div class="onboarding-header">
-      <div>
-        <div class="onboarding-step" id="onboardingStep">PASSO 1 DE 5</div>
-        <h3 class="onboarding-title" id="onboardingTitle">Título</h3>
-      </div>
-      <div class="onboarding-icon" id="onboardingTourIcon">🎯</div>
-    </div>
-    <p class="onboarding-description" id="onboardingDescription">Descrição</p>
-    <div class="onboarding-actions">
-      <button class="onboarding-btn onboarding-btn-skip" onclick="skipOnboarding()">Pular Tour</button>
-      <button class="onboarding-btn onboarding-btn-next" onclick="nextOnboardingStep()">Próximo</button>
-    </div>
-  </div>
-
-  <!-- Chatbot Widget -->
-  <div class="chatbot-widget">
-    <button class="chatbot-button" id="chatbotButton" onclick="toggleChatbot()">
-      <span id="chatbotButtonIcon">💬</span>
-    </button>
-    <div class="chatbot-notification" id="chatbotNotification" style="display: none;">1</div>
-    
-    <div class="chatbot-window" id="chatbotWindow">
-      <div class="chatbot-header">
-        <div class="chatbot-header-info">
-          <div class="chatbot-avatar">🤖</div>
-          <div>
-            <div class="chatbot-title">Assistente IS-FIELD</div>
-            <div class="chatbot-status">
-              <span class="chatbot-status-dot"></span>
-              <span>Online</span>
-            </div>
-          </div>
-        </div>
-        <button class="chatbot-close" onclick="toggleChatbot()">✕</button>
-      </div>
-      
-      <div class="chatbot-messages" id="chatbotMessages">
-        <div class="chatbot-message">
-          <div class="chatbot-message-avatar">🤖</div>
-          <div>
-            <div class="chatbot-message-bubble">
-              Olá! 👋 Sou o assistente virtual do IS Tools. Como posso ajudar você hoje?
-            </div>
-            <div class="chatbot-quick-replies">
-              <button class="chatbot-quick-reply" onclick="askChatbot('Como acessar o Jira?')">Acessar Jira</button>
-              <button class="chatbot-quick-reply" onclick="askChatbot('Gerar QR Code')">QR Code</button>
-              <button class="chatbot-quick-reply" onclick="askChatbot('Status dos sistemas')">Status Sistemas</button>
-              <button class="chatbot-quick-reply" onclick="askChatbot('Resetar senha')">Resetar Senha</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="chatbot-input-area">
-        <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Digite sua mensagem..." onkeypress="handleChatbotKeyPress(event)">
-        <button class="chatbot-send" onclick="sendChatbotMessage()">➤</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Gerador de Senhas -->
-  <button class="password-generator-btn" id="passwordGeneratorBtn" onclick="openPasswordGenerator()" title="Gerador de Senhas">
-    🔐
-  </button>
-
-  <div class="password-generator-modal" id="passwordGeneratorModal">
-    <div class="password-generator-content">
-      <div class="password-generator-header">
-        <h2 class="password-generator-title">🔐 Gerador de Senhas</h2>
-        <button class="password-generator-close" onclick="closePasswordGenerator()">✕</button>
-      </div>
-      
-      <div class="password-display">
-        <div class="password-text" id="passwordText">••••••••••••</div>
-        <button class="password-copy-btn" id="passwordCopyBtn" onclick="copyPassword()" title="Copiar senha">
-          📋
-        </button>
-      </div>
-      
-      <div class="password-strength">
-        <span class="password-strength-label">Força:</span>
-        <div class="password-strength-bar">
-          <div class="password-strength-fill" id="passwordStrengthFill"></div>
-        </div>
-      </div>
-      
-      <div class="password-options">
-        <div class="password-option">
-          <span class="password-option-label">Comprimento:</span>
-          <div style="display: flex; align-items: center; gap: 1rem;">
-            <input type="range" id="passwordLength" min="8" max="32" value="16" oninput="updatePasswordLength()">
-            <span class="password-length-value" id="passwordLengthValue">16</span>
-          </div>
-        </div>
-        
-        <div class="password-option">
-          <span class="password-option-label">Letras Maiúsculas (A-Z)</span>
-          <input type="checkbox" id="passwordUppercase" checked onchange="evaluatePasswordStrength()">
-        </div>
-        
-        <div class="password-option">
-          <span class="password-option-label">Letras Minúsculas (a-z)</span>
-          <input type="checkbox" id="passwordLowercase" checked onchange="evaluatePasswordStrength()">
-        </div>
-        
-        <div class="password-option">
-          <span class="password-option-label">Números (0-9)</span>
-          <input type="checkbox" id="passwordNumbers" checked onchange="evaluatePasswordStrength()">
-        </div>
-        
-        <div class="password-option">
-          <span class="password-option-label">Símbolos (!@#$%)</span>
-          <input type="checkbox" id="passwordSymbols" checked onchange="evaluatePasswordStrength()">
-        </div>
-      </div>
-      
-      <button class="password-generate-btn" onclick="generatePassword()">
-        🎲 Gerar Nova Senha
-      </button>
-    </div>
-  </div>
-
-  <!-- QR Code Modal (mantém o original) -->
+  <!-- QR Code Modal -->
   <div class="qrcode-modal" id="qrcodeModal">
     <div class="qrcode-modal-content">
       <div class="qrcode-modal-header">
@@ -1435,407 +1487,885 @@
     </div>
   </div>
 
-  <!-- HTML original completo (Header, Hero, Main, Footer) -->
-  <!-- ... (Mantém TODO o HTML do código anterior) ... -->
+  <!-- Corporate Header -->
+  <header class="corporate-header">
+    <div class="header-container">
+      <div class="brand-section">
+        <div class="brand-logo">
+          <img src="https://i.imgur.com/U0qdo1j.png" alt="Mercado Livre Logo">
+        </div>
+        <div class="brand-info">
+          <div class="brand-title">IS Tools Portal</div>
+          <div class="brand-subtitle">MERCADO LIVRE</div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="weather-widget" id="weatherWidget">
+          <div class="weather-icon" id="weatherIcon">⏳</div>
+          <div class="weather-info">
+            <div class="weather-temp" id="weatherTemp">Carregando...</div>
+            <div class="weather-location" id="weatherLocation">--</div>
+          </div>
+        </div>
+        <div class="header-badge">
+          <span>⚡</span>
+          <span>Acesso Rápido</span>
+        </div>
+        <div class="user-info" id="userInfo" title="Clique para editar nome">
+          <div class="user-avatar" id="userAvatar">?</div>
+          <div class="user-details">
+            <div class="user-name" id="userName">Carregando...</div>
+            <div class="user-role">IS-FIELD Team</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb-section">
+    <div class="breadcrumb-container">
+      <nav class="breadcrumb" aria-label="Navegação estrutural">
+        <div class="breadcrumb-item">
+          <a href="#" class="breadcrumb-link">Home</a>
+          <span class="breadcrumb-separator">›</span>
+        </div>
+        <div class="breadcrumb-item">
+          <a href="#" class="breadcrumb-link">Ferramentas</a>
+          <span class="breadcrumb-separator">›</span>
+        </div>
+        <div class="breadcrumb-item">
+          <span>Portal IS-FIELD</span>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-container">
+      <div class="hero-top">
+        <div class="hero-label">
+          <span>⚡</span>
+          <span>Plataforma IS-FIELD</span>
+        </div>
+        <div class="hero-time" id="heroTime">
+          <span>🕐</span>
+          <span id="currentTime">--:--</span>
+        </div>
+      </div>
+      <h1 class="hero-title">Bem-vindo, <span id="heroUserName">Usuário</span>!</h1>
+      <p class="hero-description">
+        Acesso centralizado e otimizado a links corporativos, sistemas internos e recursos essenciais para maximizar a produtividade da equipe IS-FIELD do Mercado Livre.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Container -->
+  <main class="main-container">
+    
+    <!-- Stats Dashboard -->
+    <section class="stats-dashboard" aria-label="Dashboard de estatísticas">
+      <div class="stat-card">
+        <div class="stat-header">
+          <div class="stat-icon-box">🔗</div>
+          <div class="stat-trend">
+            <span>↑</span>
+            <span>12%</span>
+          </div>
+        </div>
+        <div class="stat-value" id="linkCount">0</div>
+        <div class="stat-label">Links Disponíveis</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-header">
+          <div class="stat-icon-box">📝</div>
+          <div class="stat-trend">
+            <span>↑</span>
+            <span>8%</span>
+          </div>
+        </div>
+        <div class="stat-value" id="textCount">0</div>
+        <div class="stat-label">Templates de Texto</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-header">
+          <div class="stat-icon-box">⚡</div>
+          <div class="stat-trend">
+            <span>↑</span>
+            <span>24%</span>
+          </div>
+        </div>
+        <div class="stat-value" id="copyCount">0</div>
+        <div class="stat-label">Operações Realizadas</div>
+      </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+      <div class="search-header">
+        <h2 class="search-title">Pesquisa Inteligente</h2>
+        <p class="search-subtitle">Encontre links, templates e recursos corporativos instantaneamente</p>
+      </div>
+      <div class="search-wrapper">
+        <div class="search-input-container">
+          <span class="search-icon">🔍</span>
+          <label for="searchInput" class="sr-only">Campo de pesquisa</label>
+          <input 
+            type="text" 
+            id="searchInput" 
+            class="search-bar" 
+            placeholder="Digite para pesquisar: links, sistemas, textos, recursos..."
+            autocomplete="off"
+            aria-label="Pesquisar recursos"
+          >
+          <button id="clearSearchBtn" class="clear-search-btn" aria-label="Limpar pesquisa">✕</button>
+        </div>
+      </div>
+      <div id="searchStatus" class="search-status hidden" role="status" aria-live="polite"></div>
+    </section>
+
+    <!-- Content Container -->
+    <div id="contentContainer"></div>
+
+  </main>
+
+  <!-- Corporate Footer Simplificado -->
+  <footer class="corporate-footer">
+    <div class="footer-container">
+      <div class="footer-copyright">
+        © 2024 Mercado Livre S.A. | IS-FIELD Division | Todos os direitos reservados
+      </div>
+      <div class="footer-badges">
+        <span class="footer-badge">🔒 Seguro</span>
+        <span class="footer-badge">⚡ Alta Performance</span>
+        <span class="footer-badge">📱 Responsivo</span>
+        <span class="footer-badge">♿ Acessível</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top -->
+  <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Voltar ao topo da página">↑</button>
+
+  <!-- Tooltip -->
+  <div class="tooltip" id="tooltip" role="alert">Copiado com sucesso</div>
+
+  <!-- Audio -->
+  <audio id="bip-audio" src="https://cdn.pixabay.com/audio/2022/03/15/audio_1120b53a82.mp3" preload="auto" aria-hidden="true"></audio>
+
+  <noscript>
+    ⚠️ ATENÇÃO: Este portal corporativo requer JavaScript habilitado. Por favor, ative o JavaScript nas configurações do seu navegador para acessar todas as funcionalidades.
+  </noscript>
 
   <script>
-    // ========================================
-    // ===== ONBOARDING TOUR =====
-    // ========================================
-    
-    const onboardingSteps = [
-      {
-        element: '.search-section',
-        title: 'Busca Inteligente 🔍',
-        description: 'Use a busca para encontrar rapidamente links, templates e recursos. Digite qualquer palavra-chave!',
-        icon: '🔍'
-      },
-      {
-        element: '.weather-widget',
-        title: 'Clima em Tempo Real 🌤️',
-        description: 'Veja a temperatura e clima da sua localização atual. Atualiza automaticamente a cada 15 minutos.',
-        icon: '🌤️'
-      },
-      {
-        element: '.link-card:first-child',
-        title: 'Cards de Links 🔗',
-        description: 'Cada card tem 3 ações: Acessar o link, gerar QR Code e copiar URL. Experimente!',
-        icon: '🔗'
-      },
-      {
-        element: '.text-card:first-child',
-        title: 'Templates Personalizados 📝',
-        description: 'Templates de texto com seu nome já incluído. Clique para copiar instantaneamente!',
-        icon: '📝'
-      },
-      {
-        element: '.chatbot-widget',
-        title: 'Assistente Virtual 🤖',
-        description: 'Precisa de ajuda? Clique aqui para falar comigo. Estou sempre disponível!',
-        icon: '🤖'
-      }
-    ];
-
-    let currentOnboardingStep = 0;
-
-    function startOnboarding() {
-      const hasSeenOnboarding = localStorage.getItem('hasSeenOnboarding');
-      if (hasSeenOnboarding) return;
-
-      setTimeout(() => {
-        showOnboardingStep(0);
-      }, 2000);
-    }
-
-    function showOnboardingStep(stepIndex) {
-      if (stepIndex >= onboardingSteps.length) {
-        completeOnboarding();
-        return;
-      }
-
-      currentOnboardingStep = stepIndex;
-      const step = onboardingSteps[stepIndex];
-      const element = document.querySelector(step.element);
-      
-      if (!element) {
-        nextOnboardingStep();
-        return;
-      }
-
-      const rect = element.getBoundingClientRect();
-      const scrollY = window.scrollY;
-      
-      // Mostrar overlay
-      document.getElementById('onboardingOverlay').classList.add('active');
-      
-      // Posicionar spotlight
-      const spotlight = document.getElementById('onboardingSpotlight');
-      spotlight.style.top = `${rect.top + scrollY - 10}px`;
-      spotlight.style.left = `${rect.left - 10}px`;
-      spotlight.style.width = `${rect.width + 20}px`;
-      spotlight.style.height = `${rect.height + 20}px`;
-      spotlight.style.display = 'block';
-      
-      // Posicionar tooltip
-      const tooltip = document.getElementById('onboardingTooltip');
-      tooltip.style.display = 'block';
-      
-      let tooltipTop = rect.bottom + scrollY + 20;
-      let tooltipLeft = rect.left;
-      
-      // Ajustar se sair da tela
-      if (tooltipTop + 300 > window.innerHeight + scrollY) {
-        tooltipTop = rect.top + scrollY - 320;
-      }
-      
-      if (tooltipLeft + 400 > window.innerWidth) {
-        tooltipLeft = window.innerWidth - 420;
-      }
-      
-      tooltip.style.top = `${tooltipTop}px`;
-      tooltip.style.left = `${tooltipLeft}px`;
-      
-      // Atualizar conteúdo
-      document.getElementById('onboardingStep').textContent = `PASSO ${stepIndex + 1} DE ${onboardingSteps.length}`;
-      document.getElementById('onboardingTitle').textContent = step.title;
-      document.getElementById('onboardingDescription').textContent = step.description;
-      document.getElementById('onboardingTourIcon').textContent = step.icon;
-      
-      // Scroll suave
-      element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-
-    function nextOnboardingStep() {
-      showOnboardingStep(currentOnboardingStep + 1);
-    }
-
-    function skipOnboarding() {
-      completeOnboarding();
-    }
-
-    function completeOnboarding() {
-      document.getElementById('onboardingOverlay').classList.remove('active');
-      document.getElementById('onboardingSpotlight').style.display = 'none';
-      document.getElementById('onboardingTooltip').style.display = 'none';
-      localStorage.setItem('hasSeenOnboarding', 'true');
-      
-      // Mostrar notificação do chatbot
-      setTimeout(() => {
-        document.getElementById('chatbotNotification').style.display = 'flex';
-      }, 1000);
-    }
-
-    // ========================================
-    // ===== CHATBOT =====
-    // ========================================
-    
-    const chatbotKnowledgeBase = {
-      'jira': 'Para acessar o Jira, clique no link "Jira IS-SP02" na seção de Sistemas Internos. 📊',
-      'qr': 'Para gerar um QR Code, clique no botão amarelo 📱 ao lado de qualquer link!',
-      'senha': 'Use o botão amarelo 🔐 no canto inferior direito para abrir o Gerador de Senhas seguro!',
-      'status': 'Os cards de links mostram o status em tempo real. Se aparecer ⚠️ Offline, o sistema está indisponível.',
-      'template': 'Os templates personalizados já incluem seu nome! Basta clicar no texto para copiar.',
-      'pesquisa': 'Use a barra de pesquisa no topo para encontrar qualquer link ou template rapidamente. 🔍',
-      'clima': 'O widget de clima mostra a temperatura da sua localização em tempo real.',
-      'copiar': 'Para copiar um link, clique no botão 📋 ao lado do botão Acessar.',
-      'ajuda': 'Estou aqui para ajudar! Pergunte sobre: Jira, QR Code, senhas, status dos sistemas, templates ou pesquisa.'
-    };
-
-    function toggleChatbot() {
-      const window = document.getElementById('chatbotWindow');
-      const button = document.getElementById('chatbotButton');
-      const icon = document.getElementById('chatbotButtonIcon');
-      const notification = document.getElementById('chatbotNotification');
-      
-      if (window.classList.contains('open')) {
-        window.classList.remove('open');
-        button.classList.remove('open');
-        icon.textContent = '💬';
-      } else {
-        window.classList.add('open');
-        button.classList.add('open');
-        icon.textContent = '✕';
-        notification.style.display = 'none';
-        document.getElementById('chatbotInput').focus();
-      }
-    }
-
-    function sendChatbotMessage() {
-      const input = document.getElementById('chatbotInput');
-      const message = input.value.trim();
-      
-      if (!message) return;
-      
-      addChatbotMessage(message, 'user');
-      input.value = '';
-      
-      setTimeout(() => {
-        const response = getChatbotResponse(message);
-        addChatbotMessage(response, 'bot');
-      }, 800);
-    }
-
-    function askChatbot(question) {
-      document.getElementById('chatbotInput').value = question;
-      sendChatbotMessage();
-    }
-
-    function addChatbotMessage(message, sender) {
-      const messagesContainer = document.getElementById('chatbotMessages');
-      const messageDiv = document.createElement('div');
-      messageDiv.className = `chatbot-message ${sender}`;
-      
-      const avatar = sender === 'user' ? '👤' : '🤖';
-      
-      messageDiv.innerHTML = `
-        <div class="chatbot-message-avatar">${avatar}</div>
-        <div class="chatbot-message-bubble">${message}</div>
-      `;
-      
-      messagesContainer.appendChild(messageDiv);
-      messagesContainer.scrollTop = messagesContainer.scrollHeight;
-    }
-
-    function getChatbotResponse(message) {
-      const lowerMessage = message.toLowerCase();
-      
-      for (const [key, response] of Object.entries(chatbotKnowledgeBase)) {
-        if (lowerMessage.includes(key)) {
-          return response;
-        }
-      }
-      
-      return `Hmm, não tenho certeza sobre isso. 🤔 Posso ajudar com: Jira, QR Code, senhas, status dos sistemas, templates, pesquisa ou clima. O que você gostaria de saber?`;
-    }
-
-    function handleChatbotKeyPress(event) {
-      if (event.key === 'Enter') {
-        sendChatbotMessage();
-      }
-    }
-
-    // ========================================
-    // ===== GERADOR DE SENHAS =====
-    // ========================================
-    
-    let generatedPassword = '';
-
-    function openPasswordGenerator() {
-      document.getElementById('passwordGeneratorModal').classList.add('active');
-      generatePassword();
-    }
-
-    function closePasswordGenerator() {
-      document.getElementById('passwordGeneratorModal').classList.remove('active');
-    }
-
-    function generatePassword() {
-      const length = parseInt(document.getElementById('passwordLength').value);
-      const useUppercase = document.getElementById('passwordUppercase').checked;
-      const useLowercase = document.getElementById('passwordLowercase').checked;
-      const useNumbers = document.getElementById('passwordNumbers').checked;
-      const useSymbols = document.getElementById('passwordSymbols').checked;
-      
-      let chars = '';
-      if (useUppercase) chars += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-      if (useLowercase) chars += 'abcdefghijklmnopqrstuvwxyz';
-      if (useNumbers) chars += '0123456789';
-      if (useSymbols) chars += '!@#$%^&*()_+-=[]{}|;:,.<>?';
-      
-      if (chars === '') {
-        alert('Selecione pelo menos uma opção!');
-        return;
-      }
-      
-      let password = '';
-      for (let i = 0; i < length; i++) {
-        password += chars.charAt(Math.floor(Math.random() * chars.length));
-      }
-      
-      generatedPassword = password;
-      document.getElementById('passwordText').textContent = password;
-      evaluatePasswordStrength();
-      
-      // Animação
-      const passwordText = document.getElementById('passwordText');
-      passwordText.style.transform = 'scale(1.1)';
-      setTimeout(() => {
-        passwordText.style.transform = 'scale(1)';
-      }, 200);
-    }
-
-    function updatePasswordLength() {
-      const value = document.getElementById('passwordLength').value;
-      document.getElementById('passwordLengthValue').textContent = value;
-      evaluatePasswordStrength();
-    }
-
-    function evaluatePasswordStrength() {
-      const length = parseInt(document.getElementById('passwordLength').value);
-      const optionsCount = 
-        (document.getElementById('passwordUppercase').checked ? 1 : 0) +
-        (document.getElementById('passwordLowercase').checked ? 1 : 0) +
-        (document.getElementById('passwordNumbers').checked ? 1 : 0) +
-        (document.getElementById('passwordSymbols').checked ? 1 : 0);
-      
-      const strengthFill = document.getElementById('passwordStrengthFill');
-      
-      if (length < 12 || optionsCount < 2) {
-        strengthFill.className = 'password-strength-fill weak';
-      } else if (length < 16 || optionsCount < 3) {
-        strengthFill.className = 'password-strength-fill medium';
-      } else {
-        strengthFill.className = 'password-strength-fill strong';
-      }
-    }
-
-    function copyPassword() {
-      if (!generatedPassword) {
-        generatePassword();
-      }
-      
-      navigator.clipboard.writeText(generatedPassword).then(() => {
-        const btn = document.getElementById('passwordCopyBtn');
-        btn.textContent = '✓';
-        btn.style.background = 'var(--ml-green)';
-        
-        setTimeout(() => {
-          btn.textContent = '📋';
-          btn.style.background = 'var(--ml-blue)';
-        }, 2000);
-      });
-    }
-
-    // ========================================
-    // ===== STATUS DOS SISTEMAS =====
-    // ========================================
-    
-    async function checkSystemStatus(url) {
-      try {
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 5000);
-        
-        const response = await fetch(url, {
-          method: 'HEAD',
-          mode: 'no-cors',
-          signal: controller.signal
-        });
-        
-        clearTimeout(timeoutId);
-        return true; // Assume online se não der erro
-      } catch (error) {
-        return false; // Offline ou timeout
-      }
-    }
-
-    function updateSystemStatusIndicators() {
-      const linkCards = document.querySelectorAll('.link-card');
-      
-      linkCards.forEach(async (card) => {
-        const link = card.querySelector('[data-link]');
-        if (!link) return;
-        
-        const url = link.dataset.link;
-        const isOnline = await checkSystemStatus(url);
-        
-        if (!isOnline) {
-          card.classList.add('offline');
-        } else {
-          card.classList.remove('offline');
-        }
-      });
-    }
-
-    // ========================================
-    // ===== CONFETTI ANIMATION =====
-    // ========================================
-    
-    function throwConfetti() {
-      const colors = ['#FFE600', '#3483FA', '#00A650', '#FF6D00'];
-      const confettiCount = 50;
-      
-      for (let i = 0; i < confettiCount; i++) {
-        const confetti = document.createElement('div');
-        confetti.className = 'confetti-piece';
-        confetti.style.left = Math.random() * window.innerWidth + 'px';
-        confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
-        confetti.style.animationDelay = Math.random() * 0.5 + 's';
-        document.body.appendChild(confetti);
-        
-        setTimeout(() => confetti.remove(), 3000);
-      }
-    }
-
-    // ========================================
-    // ===== TODO O JAVASCRIPT ORIGINAL =====
-    // ========================================
-    
-    // (Mantém TODO o código JavaScript do código anterior)
-    // Inicialização, templates, weather, QR Code, etc.
-    
     document.addEventListener('DOMContentLoaded', () => {
-      // Inicializa onboarding
-      startOnboarding();
       
-      // Verifica status dos sistemas a cada 5 minutos
-      updateSystemStatusIndicators();
-      setInterval(updateSystemStatusIndicators, 5 * 60 * 1000);
+      // ========================================
+      // ===== GESTÃO DE USUÁRIO =====
+      // ========================================
       
-      // Confetti ao atingir 100 cópias
-      const originalUpdateStats = updateStats;
-      updateStats = function() {
-        const previousCount = parseInt(document.getElementById('copyCount').textContent) || 0;
-        originalUpdateStats();
-        const newCount = parseInt(document.getElementById('copyCount').textContent) || 0;
-        
-        if (newCount === 100 && previousCount < 100) {
-          throwConfetti();
-          addChatbotMessage('🎉 Parabéns! Você atingiu 100 operações copiadas!', 'bot');
+      let currentUser = 'Usuário';
+      
+      // Inicializa usuário
+      function initializeUser() {
+        const storedUser = localStorage.getItem('userName');
+        if (storedUser) {
+          currentUser = storedUser;
+          console.log('✅ Nome recuperado do localStorage:', currentUser);
+        } else {
+          const firstVisit = !localStorage.getItem('userNameSet');
+          if (firstVisit) {
+            const promptName = prompt('👋 Bem-vindo ao IS Tools Portal!\n\nPor favor, digite seu nome:');
+            if (promptName && promptName.trim()) {
+              currentUser = promptName.trim();
+              localStorage.setItem('userName', currentUser);
+              localStorage.setItem('userNameSet', 'true');
+              console.log('✅ Nome salvo:', currentUser);
+            } else {
+              currentUser = 'Colaborador';
+            }
+          }
         }
+
+        updateUserUI();
+      }
+
+      function updateUserUI() {
+        const userInitials = currentUser.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
+        
+        document.getElementById('userName').textContent = currentUser;
+        document.getElementById('heroUserName').textContent = currentUser;
+        document.getElementById('userAvatar').textContent = userInitials;
+      }
+
+      // Permite editar nome ao clicar no perfil
+      document.getElementById('userInfo').addEventListener('click', () => {
+        const newName = prompt('Editar nome de usuário:', currentUser);
+        if (newName && newName.trim()) {
+          currentUser = newName.trim();
+          localStorage.setItem('userName', currentUser);
+          updateUserUI();
+          populateContent();
+          console.log('✅ Nome atualizado para:', currentUser);
+        }
+      });
+
+      // Inicializa usuário
+      initializeUser();
+
+      // ===== CLOCK =====
+      function updateClock() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        
+        document.getElementById('currentTime').textContent = `${hours}:${minutes}:${seconds}`;
+      }
+
+      updateClock();
+      setInterval(updateClock, 1000);
+
+      // ===== WEATHER API COM CIDADE =====
+      async function getWeather() {
+        try {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(async (position) => {
+              const lat = position.coords.latitude;
+              const lon = position.coords.longitude;
+              
+              const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`;
+              const geoUrl = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=pt`;
+              
+              try {
+                const [weatherRes, geoRes] = await Promise.all([
+                  fetch(weatherUrl),
+                  fetch(geoUrl)
+                ]);
+                
+                const weatherData = await weatherRes.json();
+                const geoData = await geoRes.json();
+                
+                const temp = Math.round(weatherData.current_weather.temperature);
+                const weatherCode = weatherData.current_weather.weathercode;
+                
+                // Prioriza cidade, depois localidade, depois princípio administrativo
+                const city = geoData.city || geoData.locality || geoData.principalSubdivision || 'Sua Localização';
+                
+                const weatherIcons = {
+                  0: '☀️', 1: '🌤️', 2: '⛅', 3: '☁️',
+                  45: '🌫️', 48: '🌫️',
+                  51: '🌦️', 53: '🌦️', 55: '🌧️',
+                  61: '🌧️', 63: '🌧️', 65: '⛈️',
+                  71: '🌨️', 73: '🌨️', 75: '❄️',
+                  77: '🌨️', 80: '🌦️', 81: '⛈️', 82: '⛈️',
+                  85: '🌨️', 86: '❄️',
+                  95: '⛈️', 96: '⛈️', 99: '⛈️'
+                };
+                
+                const icon = weatherIcons[weatherCode] || '🌡️';
+                
+                document.getElementById('weatherIcon').textContent = icon;
+                document.getElementById('weatherTemp').textContent = `${temp}°C`;
+                document.getElementById('weatherLocation').textContent = city;
+                
+                console.log('✅ Clima atualizado:', temp + '°C', city);
+                
+              } catch (apiError) {
+                console.error('❌ Erro ao buscar dados do tempo:', apiError);
+                showWeatherFallback();
+              }
+              
+            }, (error) => {
+              console.warn('⚠️ Geolocalização negada ou indisponível');
+              showWeatherFallback();
+            });
+          } else {
+            showWeatherFallback();
+          }
+        } catch (error) {
+          console.error('❌ Erro no weather:', error);
+          showWeatherFallback();
+        }
+      }
+
+      function showWeatherFallback() {
+        const now = new Date();
+        const hour = now.getHours();
+        let icon = '🌡️';
+        let status = 'Tempo Local';
+        
+        if (hour >= 6 && hour < 12) {
+          icon = '🌅';
+          status = 'Bom Dia';
+        } else if (hour >= 12 && hour < 18) {
+          icon = '☀️';
+          status = 'Boa Tarde';
+        } else {
+          icon = '🌙';
+          status = 'Boa Noite';
+        }
+        
+        document.getElementById('weatherIcon').textContent = icon;
+        document.getElementById('weatherTemp').textContent = status;
+        document.getElementById('weatherLocation').textContent = 'Brasil';
+      }
+
+      getWeather();
+      setInterval(getWeather, 15 * 60 * 1000);
+
+      // ===== QR CODE FUNCTIONS =====
+      let currentQRCode = null;
+
+      function openQRCodeModal(url, title) {
+        const modal = document.getElementById('qrcodeModal');
+        const container = document.getElementById('qrcodeContainer');
+        const titleEl = document.getElementById('qrcodeTitle');
+        const urlEl = document.getElementById('qrcodeUrl');
+
+        container.innerHTML = '';
+        
+        if (currentQRCode) {
+          currentQRCode = null;
+        }
+
+        currentQRCode = new QRCode(container, {
+          text: url,
+          width: 256,
+          height: 256,
+          colorDark: "#1A1A1A",
+          colorLight: "#FFFFFF",
+          correctLevel: QRCode.CorrectLevel.H
+        });
+
+        titleEl.textContent = title;
+        urlEl.textContent = url;
+
+        modal.classList.add('active');
+
+        console.log('✅ QR Code gerado para:', url);
+      }
+
+      window.closeQRCodeModal = function() {
+        const modal = document.getElementById('qrcodeModal');
+        modal.classList.remove('active');
       };
-      
-      // Todo o código de inicialização original...
-      // (Copie aqui todo o código JavaScript do arquivo anterior)
+
+      document.getElementById('qrcodeModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+          closeQRCodeModal();
+        }
+      });
+
+      // ===== TEMPLATES DE TEXTO PERSONALIZADOS =====
+      function getReadyTextsTemplate(userName) {
+        const now = new Date();
+        const dayOfWeek = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'][now.getDay()];
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const currentDateTime = `${dayOfWeek}, ${now.toLocaleDateString('pt-BR')} às ${hours}:${minutes}`;
+
+        return [
+          { 
+            id: 'boas_vindas_personalizado', 
+            label: `Boas-vindas / Início do atendimento (${userName} – IS-FIELD)`, 
+            text: `Prezado(a),
+
+Meu nome é ${userName}, integrante da equipe IS-FIELD. Iniciei a análise do seu ticket neste momento. Caso sejam necessárias informações adicionais ou esclarecimentos sobre o chamado, entrarei em contato por meio do Google Chat 💬.
+
+📅 Data/Hora: ${currentDateTime}
+
+⏰ Horário de atendimento:
+Domingo a quinta-feira – Turno 2: 13h às 22h
+
+Permanecemos à disposição para suporte.
+
+Atenciosamente,
+${userName} | Equipe IS-FIELD 🤝💙💛` 
+          },
+          { 
+            id: 'chamado_resolvido_retirada', 
+            label: 'Chamado Resolvido / Retirada de Equipamento', 
+            text: `Prezado(a),
+
+✅ Seu chamado foi resolvido com sucesso!
+
+📦 O equipamento já está disponível para retirada na Ilha de TI.
+
+📋 Instruções:
+• Apresentar o número deste chamado na ilha de TI
+• Horário de retirada: Segunda a Sexta, 8h às 18h
+• Prazo: 10 dias corridos
+
+⚠️ IMPORTANTE: Caso não seja retirado no prazo, o equipamento será recolhido para o estoque de IS.
+
+Qualquer dúvida, estamos à disposição.
+
+Atenciosamente,
+${userName} | Equipe IS-FIELD 🤝💙` 
+          },
+          { 
+            id: 'substituicao_perda_loss', 
+            label: 'Substituição por Perda – Direcionamento para LOSS', 
+            text: `Prezado(a),
+
+Informamos que o time de IS-FIELD não realiza fluxo de substituição por perda de equipamentos da operação.
+
+🔄 Próximos passos:
+Para dar continuidade ao processo de substituição, favor acionar diretamente o time de LOSS (Loss Prevention).
+
+📞 Contato LOSS:
+• Email: loss@mercadolivre.com
+• Ramal: XXXX
+• Sistema: [inserir sistema de abertura de chamado LOSS]
+
+Permanecemos à disposição para demais suportes técnicos.
+
+Atenciosamente,
+${userName} | Equipe IS-FIELD 🤝` 
+          },
+          { 
+            id: 'trazer_equip_validacao_simples', 
+            label: 'Trazer Equipamento para Validação (Simples)', 
+            text: `Prezado(a),
+
+Para darmos continuidade ao atendimento, solicitamos que:
+
+📍 Traga o equipamento até a Ilha de IS
+🏷️ Identifique o equipamento com o número deste chamado
+⏰ Horário de atendimento: Segunda a Sexta, 8h às 18h
+
+Nossa equipe realizará a validação e dará o retorno sobre a solução aplicada.
+
+Aguardamos o equipamento para análise.
+
+Atenciosamente,
+${userName} | Equipe IS-FIELD 🤝💙` 
+          },
+          { 
+            id: 'coleta_informacoes_atendimento', 
+            label: 'Coleta de Informações para Atendimento', 
+            text: `Prezado(a),
+
+Para darmos continuidade ao seu atendimento de forma eficiente, solicitamos que nos forneça as seguintes informações:
+
+📋 INFORMAÇÕES NECESSÁRIAS:
+
+🏢 Setor ou Local:
+[Aguardando resposta]
+
+🔢 Nº da Bancada:
+[Aguardando resposta]
+
+❌ Erro/Problema:
+[Aguardando resposta]
+
+📝 Observações adicionais:
+[Aguardando resposta]
+
+📸 Foto evidência:
+[Aguardando anexo]
+
+Quanto mais detalhes você fornecer, mais rápido conseguiremos resolver o seu chamado.
+
+Aguardamos seu retorno.
+
+Atenciosamente,
+${userName} | Equipe IS-FIELD 🤝💙` 
+          },
+          { 
+            id: 'trazer_equip_validacao_assets', 
+            label: 'Validação de Equipamento + Possível Envio para Assets', 
+            text: `Prezado(a),
+
+Para análise técnica do equipamento, solicitamos que:
+
+📍 PROCEDIMENTO:
+1. Trazer o equipamento até a Ilha de IS
+2. Identificar com o número deste chamado
+3. Nossa equipe realizará validação técnica completa
+
+🔍 ANÁLISE:
+• O equipamento será recolhido para análise detalhada
+• Após validação, será devolvido para a operação
+
+⚠️ OBSERVAÇÃO IMPORTANTE:
+Caso seja identificado dano no equipamento, ele será encaminhado ao time de Assets para reparo ou substituição. Aguardaremos a reposição antes de realizar a devolução.
+
+⏰ Previsão de análise: 24 a 48 horas úteis
+
+Atenciosamente,
+${userName} | Equipe IS-FIELD 🤝💙` 
+          },
+          { 
+            id: 'alta_demanda_notebooks_lista_espera', 
+            label: 'Alta Demanda de Notebooks / Lista de Espera', 
+            text: `Prezado(a),
+
+📊 COMUNICADO - Alta Demanda de Notebooks
+
+Informamos que estamos com um volume elevado de solicitações de notebooks e, no momento, o atendimento está condicionado à disponibilidade em nosso estoque.
+
+📋 PROCEDIMENTO:
+Para otimizar o fluxo de atendimento, seu chamado será encerrado neste momento. Entretanto:
+
+✅ Seu nome será registrado em nossa planilha de controle interno
+📞 Entraremos em contato assim que houver equipamento disponível
+⏰ Previsão de reposição: [informar se houver]
+
+🔔 IMPORTANTE:
+Você não precisará abrir novo chamado. Nossa equipe entrará em contato proativamente quando tivermos disponibilidade.
+
+Agradecemos pela compreensão e paciência.
+
+Permanecemos à disposição para demais suportes.
+
+Atenciosamente,
+${userName} | Equipe IS-FIELD 🤝💙` 
+          },
+          { 
+            id: 'handheld_rf_formulario_assets', 
+            label: 'Procedimento HANDHELD/RF + Formulário + Assets', 
+            text: `Prezado(a),
+
+📱 PROCEDIMENTO HANDHELD/RF - Atualização de Processo
+
+🔄 NOVO FLUXO OBRIGATÓRIO:
+
+1️⃣ PREENCHER FORMULÁRIO:
+Acesse e preencha o formulário oficial:
+🔗 https://forms.gle/UUthvFeTApQ7YrTu8
+
+2️⃣ TRAZER EQUIPAMENTO:
+• Levar o equipamento até a Ilha de IS
+• Identificar com o número deste chamado
+• Horário: Segunda a Sexta, 8h às 18h
+
+3️⃣ VALIDAÇÃO:
+• Equipamento será recolhido para análise técnica
+• Devolvido para operação após validação
+
+⚠️ EQUIPAMENTO DANIFICADO:
+Caso seja constatado dano, o equipamento será encaminhado ao time de Assets para reparo/substituição. Aguardaremos a reposição antes da devolução.
+
+⏰ Prazo de análise: 24 a 48 horas úteis
+
+Qualquer dúvida, estamos à disposição.
+
+Atenciosamente,
+${userName} | Equipe IS-FIELD 🤝💙💛` 
+          }
+        ];
+      }
+
+      // ===== DATA =====
+      const linkCategories = [
+        { 
+          categoryLabel: 'Acessos e Segurança', 
+          icon: '🔐',
+          items: [
+            { label: 'Código 8 Dígitos', url: 'https://melihelp.adminml.com/auth0/35', icon: '🔑' },
+            { label: 'SHIELD Gmail Internos', url: 'https://shield.adminml.com/requests/create?c=4276', icon: '🛡️' },
+            { label: 'MDM', url: 'https://cn259.awmdm.com/AirWatch/Login?ReturnUrl=%2FAirWatch%2F#/Device/Dashboard', icon: '📱' },
+            { label: 'AD - Acesso Rápido', url: 'https://rds.local-is.net/RDWeb/WebClient/', icon: '🖥️' }
+          ]
+        },
+        { 
+          categoryLabel: 'Sistemas Internos', 
+          icon: '⚙️',
+          items: [
+            { label: 'Jira IS-SP02', url: 'https://mercadolibre.atlassian.net/issues/?filter=77203', icon: '📊' },
+            { label: 'Mordor', url: 'https://melihelp-backoffice.adminml.com/home', icon: '🏰' },
+            { label: 'Backoffice Impressoras', url: 'https://shipping-bo.adminml.com/devices-ucs/home', icon: '🖨️' },
+            { label: 'Labeling WMS SKU', url: 'https://wms.adminml.com/labeling?inventory=FRAG82348', icon: '📦' }
+          ]
+        },
+        { 
+          categoryLabel: 'Documentação e Formulários', 
+          icon: '📋',
+          items: [
+            { label: 'Forms Entrada/Saída', url: 'https://docs.google.com/forms/d/e/1FAIpQLScJYFkVzCeoQQAkOrmWAistJHPUxzVcWpJ8LV784QZ49WyWfA/viewform', icon: '📝' },
+            { label: 'Solicitação de Manutenção', url: 'https://docs.google.com/forms/d/e/1FAIpQLSc2J3LlUWGMMgbUesMe3IPguytFVUrpZaTiZ_3T1TVDTIslqg/viewform', icon: '🔧' },
+            { label: 'Base de Conhecimento', url: 'https://sites.google.com/mercadolivre.com/base-de-conhecimentos-ti/home', icon: '📚' },
+            { label: 'Aplicativos Meli', url: 'https://sites.google.com/view/aplicativosmeli/in%C3%ADcio', icon: '📲' },
+            { label: 'Passagem de Turno', url: 'https://docs.google.com/spreadsheets/d/1_mIC_cvcrehFxTigNQ8OR9An4EPk5bBVZZdojRFBNek/edit?usp=sharing', icon: '🔄' }
+          ]
+        }
+      ];
+
+      // Elements
+      const contentContainer = document.getElementById('contentContainer');
+      const searchInput = document.getElementById('searchInput');
+      const clearSearchBtn = document.getElementById('clearSearchBtn');
+      const searchStatus = document.getElementById('searchStatus');
+      const tooltip = document.getElementById('tooltip');
+      const scrollTopBtn = document.getElementById('scrollTopBtn');
+      const linkCountEl = document.getElementById('linkCount');
+      const textCountEl = document.getElementById('textCount');
+      const copyCountEl = document.getElementById('copyCount');
+      const audioBip = document.getElementById('bip-audio');
+
+      let copyCount = parseInt(localStorage.getItem('copyCount') || '0');
+      let totalLinks = 0;
+      let totalTexts = getReadyTextsTemplate(currentUser).length;
+
+      linkCategories.forEach(cat => totalLinks += cat.items.length);
+
+      function updateStats() {
+        animateNumber(linkCountEl, totalLinks);
+        animateNumber(textCountEl, totalTexts);
+        animateNumber(copyCountEl, copyCount);
+        localStorage.setItem('copyCount', copyCount);
+      }
+
+      function animateNumber(element, target) {
+        let current = parseInt(element.textContent) || 0;
+        const increment = Math.ceil(target / 25);
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            element.textContent = target;
+            clearInterval(timer);
+          } else {
+            element.textContent = current;
+          }
+        }, 40);
+      }
+
+      updateStats();
+
+      function beep() {
+        audioBip.currentTime = 0;
+        audioBip.play().catch(e => console.error("Audio playback failed:", e));
+      }
+
+      function populateContent(filter = '') {
+        contentContainer.innerHTML = '';
+        const lowerCaseFilter = filter.toLowerCase().trim();
+        let hasVisibleContent = false;
+
+        const readyTextsTemplate = getReadyTextsTemplate(currentUser);
+
+        linkCategories.forEach(category => {
+          const filteredItems = category.items.filter(item =>
+            item.label.toLowerCase().includes(lowerCaseFilter) ||
+            category.categoryLabel.toLowerCase().includes(lowerCaseFilter)
+          );
+
+          if (filteredItems.length > 0) {
+            const section = document.createElement('section');
+            section.className = 'content-section';
+
+            const header = document.createElement('div');
+            header.className = 'section-header';
+            header.innerHTML = `
+              <div class="section-icon">${category.icon}</div>
+              <div class="section-title-group">
+                <h2 class="section-title">${category.categoryLabel}</h2>
+                <p class="section-subtitle">${filteredItems.length} ${filteredItems.length === 1 ? 'recurso disponível' : 'recursos disponíveis'}</p>
+              </div>
+            `;
+            section.appendChild(header);
+
+            const grid = document.createElement('div');
+            grid.className = 'links-grid';
+
+            filteredItems.forEach(item => {
+              const card = document.createElement('div');
+              card.className = 'link-card';
+              card.innerHTML = `
+                <div class="link-content">
+                  <div class="link-icon">${item.icon}</div>
+                  <div class="link-details">
+                    <span class="link-title">${item.label}</span>
+                    <span class="link-url">${item.url}</span>
+                  </div>
+                </div>
+                <div class="link-actions">
+                  <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" aria-label="Acessar ${item.label}">
+                    <span>Acessar</span>
+                    <span>→</span>
+                  </a>
+                  <button class="btn btn-qrcode" data-url="${item.url}" data-title="${item.label}" data-action="qrcode" aria-label="Gerar QR Code de ${item.label}" title="Gerar QR Code">
+                    <span>📱</span>
+                  </button>
+                  <button class="btn btn-secondary" data-link="${item.url}" data-action="copy" aria-label="Copiar link ${item.label}" title="Copiar link">
+                    <span>📋</span>
+                  </button>
+                </div>
+              `;
+              grid.appendChild(card);
+            });
+
+            section.appendChild(grid);
+            contentContainer.appendChild(section);
+            hasVisibleContent = true;
+          }
+        });
+
+        const filteredTexts = readyTextsTemplate.filter(item =>
+          item.text.toLowerCase().includes(lowerCaseFilter) ||
+          item.label.toLowerCase().includes(lowerCaseFilter)
+        );
+
+        if (filteredTexts.length > 0) {
+          const section = document.createElement('section');
+          section.className = 'content-section';
+
+          const header = document.createElement('div');
+          header.className = 'section-header';
+          header.innerHTML = `
+            <div class="section-icon">📝</div>
+            <div class="section-title-group">
+              <h2 class="section-title">Templates de Texto Personalizados</h2>
+              <p class="section-subtitle">${filteredTexts.length} ${filteredTexts.length === 1 ? 'template disponível' : 'templates disponíveis'} • Personalizados para ${currentUser}</p>
+            </div>
+          `;
+          section.appendChild(header);
+
+          filteredTexts.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'text-card';
+            card.innerHTML = `
+              <div class="text-card-header">
+                <h3 class="text-card-title">${item.label}</h3>
+                <span class="text-badge">Personalizado</span>
+              </div>
+              <div class="text-content" data-text="${escapeHTML(item.text)}" data-action="copy-text" role="button" tabindex="0">
+                ${item.text.replace(/\n/g, '<br>')}
+              </div>
+            `;
+            section.appendChild(card);
+          });
+
+          contentContainer.appendChild(section);
+          hasVisibleContent = true;
+        }
+
+        if (filter) {
+          searchStatus.classList.remove('hidden');
+          searchStatus.textContent = hasVisibleContent 
+            ? `✓ Encontrados resultados para "${filter}"` 
+            : `✗ Nenhum resultado encontrado para "${filter}"`;
+        } else {
+          searchStatus.classList.add('hidden');
+        }
+      }
+
+      function escapeHTML(str) {
+        return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+      }
+
+      function showTooltip(targetElement) {
+        const rect = targetElement.getBoundingClientRect();
+        tooltip.style.left = `${rect.left + rect.width / 2}px`;
+        tooltip.style.top = `${rect.top - 10}px`;
+        tooltip.style.animation = 'none';
+        requestAnimationFrame(() => {
+          tooltip.style.animation = 'tooltipShow 2s ease-in-out forwards';
+        });
+      }
+
+      contentContainer.addEventListener('click', (event) => {
+        const qrcodeBtn = event.target.closest('[data-action="qrcode"]');
+        if (qrcodeBtn) {
+          const url = qrcodeBtn.dataset.url;
+          const title = qrcodeBtn.dataset.title;
+          openQRCodeModal(url, title);
+          return;
+        }
+
+        const copyBtn = event.target.closest('[data-action="copy"]');
+        if (copyBtn) {
+          const link = copyBtn.dataset.link;
+          navigator.clipboard.writeText(link).then(() => {
+            beep();
+            copyBtn.classList.add('btn-success');
+            showTooltip(copyBtn);
+            copyCount++;
+            updateStats();
+            setTimeout(() => copyBtn.classList.remove('btn-success'), 600);
+          }).catch(err => {
+            console.error('Erro ao copiar:', err);
+            alert('Erro ao copiar o link. Por favor, tente novamente.');
+          });
+          return;
+        }
+
+        const textElement = event.target.closest('[data-action="copy-text"]');
+        if (textElement) {
+          const text = textElement.dataset.text;
+          navigator.clipboard.writeText(text).then(() => {
+            beep();
+            showTooltip(textElement);
+            copyCount++;
+            updateStats();
+          }).catch(err => {
+            console.error('Erro ao copiar:', err);
+            alert('Erro ao copiar o texto. Por favor, tente novamente.');
+          });
+        }
+      });
+
+      function handleSearch() {
+        const searchTerm = searchInput.value;
+        populateContent(searchTerm);
+        clearSearchBtn.classList.toggle('active', searchTerm.length > 0);
+        
+        const url = new URL(window.location);
+        if (searchTerm) {
+          url.searchParams.set('q', searchTerm);
+        } else {
+          url.searchParams.delete('q');
+        }
+        window.history.replaceState({}, '', url);
+      }
+
+      searchInput.addEventListener('input', handleSearch);
+      clearSearchBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        handleSearch();
+        searchInput.focus();
+      });
+
+      contentContainer.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          const textElement = event.target.closest('[data-action="copy-text"]');
+          if (textElement) {
+            event.preventDefault();
+            textElement.click();
+          }
+        }
+      });
+
+      let scrollThreshold = 400;
+      window.addEventListener('scroll', () => {
+        scrollTopBtn.classList.toggle('visible', window.scrollY > scrollThreshold);
+      }, { passive: true });
+
+      scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const searchTermFromUrl = urlParams.get('q');
+      if (searchTermFromUrl) {
+        searchInput.value = searchTermFromUrl;
+      }
+      populateContent(searchInput.value);
+      clearSearchBtn.classList.toggle('active', searchInput.value.length > 0);
+
+      setTimeout(() => {
+        const loadingScreen = document.querySelector('.loading-screen');
+        if (loadingScreen) {
+          loadingScreen.style.display = 'none';
+        }
+      }, 1500);
+
+      searchInput.focus();
     });
   </script>
 </body>
